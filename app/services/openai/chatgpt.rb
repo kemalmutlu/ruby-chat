@@ -9,6 +9,8 @@ module Openai
     end
 
     def chat(message)
+      raise 'Message is empty' if message.empty?
+
       response = call_client(message)
 
       response.dig('choices', 0, 'message', 'content').presence || 'Couldn\'t retrieve answer, try again!'

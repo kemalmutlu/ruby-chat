@@ -42,4 +42,12 @@ RSpec.describe(Openai::Chatgpt, type: :service) do
 
     expect(answer).to(eq(JSON.parse(response_body).dig('choices', 0, 'message', 'content')))
   end
+
+  it 'message is empty' do
+    message = ''
+
+    expect do
+      subject.chat(message)
+    end.to(raise_error(RuntimeError, 'Message is empty'))
+  end
 end
