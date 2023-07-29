@@ -44,6 +44,8 @@ gem "bootsnap", require: false
 
 gem 'sassc-rails'
 
+gem 'ruby-openai'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -84,6 +86,8 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+
+  gem 'webmock'
 end
 
 gem "tailwindcss-rails", "~> 2.0"
