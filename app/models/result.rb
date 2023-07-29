@@ -2,7 +2,7 @@
 #
 # Table name: results
 #
-#  id         :bigint           not null, primary key
+#  id         :uuid             not null, primary key
 #  answer     :text             not null
 #  count      :integer          default(1), not null
 #  question   :text             not null
