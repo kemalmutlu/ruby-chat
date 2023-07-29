@@ -13,4 +13,5 @@
 #  index_results_on_question_and_answer  (question,answer)
 #
 class Result < ApplicationRecord
+  validates :answer, :question, presence: true
 end
