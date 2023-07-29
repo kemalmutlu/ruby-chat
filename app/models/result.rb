@@ -16,7 +16,7 @@
 class Result < ApplicationRecord
   include AlgoliaSearch
 
-  validates :answer, :question, :count, presence: true
+  validates :answer, :question, presence: true
   validates :count, numericality: { greater_than: 0 }
 
 
