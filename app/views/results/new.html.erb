@@ -1,0 +1,9 @@
+<%= turbo_frame_tag "new_result" do %>
+  <%= form_with(model: [@result], data: { controller: "reset-question", action: "turbo:submit-end->reset-question#reset" }) do |form| %>
+    <div class="fields">
+      <%= form.text_field :question %>
+      <%= form.submit 'Send' %>
+    </div>
+  <% end %>
+<% end %>
+
