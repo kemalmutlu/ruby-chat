@@ -13,5 +13,11 @@
 #  index_results_on_question_and_answer  (question,answer)
 #
 class Result < ApplicationRecord
+  include AlgoliaSearch
+
   validates :answer, :question, presence: true
+
+  algoliasearch disable_indexing: false, index_name: ENV['ALGOLIA_INDEX_NAME'], auto_index: true, auto_remove: true do
+    attributes :id, :answer, :question
+  end
 end
