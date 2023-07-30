@@ -1,8 +1,9 @@
 module AlgoliaSearch
   class Request
     def initialize(message)
-      raise EmptyMessageError.new if message.nil? || message.strip.empty?
-      raise SmallLimitError.new if message.size < 10
+      raise EmptyMessageError if message.nil? || message.strip.empty?
+      raise SmallLimitError if message.size < 10
+
       @message = message
 
       def fetch_data

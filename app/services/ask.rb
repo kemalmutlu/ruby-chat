@@ -2,7 +2,8 @@ class Ask
   attr_reader :message
 
   def initialize(message)
-    raise 'Message is empty' if message.empty?
+    raise EmptyMessageError if message.nil? || message.strip.empty?
+    raise SmallLimitError if message.size < 10
 
     @message = message
   end

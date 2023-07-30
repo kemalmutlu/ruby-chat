@@ -1,4 +1,6 @@
 class ResultsController < ApplicationController
+  rescue_from(::EmptyMessageError) { |error| render_error(error) }
+  rescue_from(::SmallLimitError) { |error| render_error(error) }
 
   def index
     @results = Result.all
@@ -35,5 +37,12 @@ class ResultsController < ApplicationController
 
   def result_params
     params.require(:result).permit(:question)
+  end
+
+  def render_error(error)
+    render(turbo_stream: turbo_stream.append('results', partial: 'results/bad_result', locals: {
+      question: result_params[:question],
+      error_message: error.message,
+    }))
   end
 end

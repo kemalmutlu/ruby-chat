@@ -9,8 +9,8 @@ module Openai
     end
 
     def chat(message)
-      raise EmptyMessageError.new if message.nil? || message.strip.empty?
-      raise SmallLimitError.new if message.size < 10
+      raise EmptyMessageError if message.nil? || message.strip.empty?
+      raise SmallLimitError if message.size < 10
 
       response = call_client(message)
 
