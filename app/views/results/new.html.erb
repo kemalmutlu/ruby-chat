@@ -1,9 +1,10 @@
 <%= turbo_frame_tag "new_result" do %>
-  <%= form_with(model: [@result], data: { controller: "reset-question", action: "turbo:submit-end->reset-question#reset" }) do |form| %>
+  <%= form_with(model: [@result], data: { controller: "reset-question", action: "turbo:submit-start->reset-question#start_submit turbo:submit-end->reset-question#reset" }) do |form| %>
     <div class="flex flex-row">
+      <div class="min-w-[40px] max-w-[40px] w-[40px] flex justify-center items-center"><img src="<%= asset_path("loading.svg") %>" data-reset-question-target="loading" hidden></div>
       <%= form.text_field :question,
-                          class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
-      <%= form.submit 'Submit', style: "margin-left: 10px; padding: 5px;", class: "bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+                          class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", data: { reset_question_target: 'textField' } %>
+      <%= form.submit 'Submit', style: "margin-left: 10px; padding: 5px;", class: "bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", data: { reset_question_target: 'submitButton' } %>
     </div>
   <% end %>
 <% end %>
