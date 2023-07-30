@@ -24,6 +24,10 @@ class Result < ApplicationRecord
 
   scope :popular_results, -> { order(count: :desc).limit(10) }
 
+  def display_question
+    question.gsub('You are a Ruby on Rails developer, ', '')
+  end
+
   class << self
     def increment_all
       update_all('count = count + 1')
