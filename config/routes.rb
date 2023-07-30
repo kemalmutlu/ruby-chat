@@ -3,5 +3,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "home#index"
-  resources :results
+  resources :results do
+    get :append_result, on: :member
+  end
 end
