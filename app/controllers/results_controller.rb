@@ -2,6 +2,7 @@ class ResultsController < ApplicationController
 
   def index
     @results = Result.all
+    @popular_results= Result.popular_results
   end
 
   def new

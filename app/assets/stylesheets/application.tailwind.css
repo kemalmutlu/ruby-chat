@@ -19,7 +19,9 @@
 .left-home-screen {
     background-color: #202123;
 }
-
+.my_scroll_div{
+    overflow-y: auto;
+}
 @media screen and (max-width: 640px) {
     #openMenu {
         display: none;

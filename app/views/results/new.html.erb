@@ -1,8 +1,9 @@
 <%= turbo_frame_tag "new_result" do %>
   <%= form_with(model: [@result], data: { controller: "reset-question", action: "turbo:submit-end->reset-question#reset" }) do |form| %>
-    <div class="fields">
-      <%= form.text_field :question %>
-      <%= form.submit 'Send' %>
+    <div class="flex flex-row">
+      <%= form.text_field :question,
+                          class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+      <%= form.submit 'Submit', style: "margin-left: 10px; padding: 5px;", class: "bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
     </div>
   <% end %>
 <% end %>

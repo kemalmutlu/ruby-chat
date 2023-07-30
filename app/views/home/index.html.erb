@@ -8,28 +8,17 @@
               <line x1="12" y1="5" x2="12" y2="19"></line>
               <line x1="5" y1="12" x2="19" y2="12"></line>
             </svg>
-            New chat</a>
-          <button data-menu-target="closeMenu" data-action="click->menu#toggleMenu"><a class="flex p-3 gap-3 transition-colors duration-200 text-white cursor-pointer text-sm rounded-md border border-white/20 hover:bg-gray-500/10 h-11 w-11 flex-shrink-0 items-center justify-center">
+            Add Question</a>
+          <span class="" data-state="closed"><a class="flex p-3 gap-3 transition-colors duration-200 text-white cursor-pointer text-sm rounded-md border border-white/20 hover:bg-gray-500/10 h-11 w-11 flex-shrink-0 items-center justify-center">
             <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
               <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
               <line x1="9" y1="3" x2="9" y2="21"></line></svg>
             <span style="position: absolute; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; overflow-wrap: normal;">Close sidebar</span>
           </a>
-          </button>
+          </span>
         </div>
         <div class="flex-col space-y-4 mt-5">
-          <div class="px-2 py-3 hover:bg-customColor hover:rounded-lg">
-            lorem lorem 1
-          </div>
-          <div class="px-2 py-3 hover:bg-customColor hover:rounded-lg">
-            lorem lorem 1
-          </div>
-          <div class="px-2 py-3 hover:bg-customColor hover:rounded-lg">
-            lorem lorem 1
-          </div>
-          <div class="px-2 py-3 hover:bg-customColor hover:rounded-lg">
-            lorem lorem 1
-          </div>
+          <%= render 'shared/popular_result' %>
         </div>
       </div>
     </div>
@@ -42,8 +31,6 @@
     </button>
     <div class="grow h-14 h-auto text-white h-full">
       <div class="flex flex-col text-sm dark:bg-gray-800 h-full">
-        <div class="px-2 w-full flex flex-col py-2 md:py-6 sticky top-0">
-        </div>
         <div class="text-gray-800 w-full mx-auto md:max-w-2xl lg:max-w-3xl md:flex md:flex-col px-6 dark:text-gray-100">
           <h1 class="text-4xl font-semibold text-center mt-3 sm:mt-[6vh] ml-auto mr-auto mb-4 sm:mb-16 flex gap-2 items-center justify-center">RubyChat</h1>
         </div>
