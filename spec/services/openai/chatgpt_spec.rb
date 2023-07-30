@@ -9,12 +9,14 @@ RSpec.describe(Openai::Chatgpt, type: :service) do
   let(:model) { 'gpt-3.5-turbo' }
   let(:role) { 'user' }
   let(:temperature) { 0.7 }
+  let(:max_tokens) { 800 }
 
   let(:openai_chat_params) do
     {
       parameters: {
         model: model,
         temperature: temperature,
+        max_tokens: max_tokens,
         messages: [
           {
             role: role,

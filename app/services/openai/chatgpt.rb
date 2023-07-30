@@ -16,6 +16,10 @@ module Openai
       response.dig('choices', 0, 'message', 'content').presence || 'Couldn\'t retrieve answer, try again!'
     end
 
+    def question(message)
+      MESSAGE_PREFIX + message
+    end
+
     private
 
     def call_client(message)
@@ -23,6 +27,7 @@ module Openai
         parameters: {
           model: model,
           temperature: temperature,
+          max_tokens: max_tokens,
           messages: [
             {
               role: role,
@@ -31,10 +36,6 @@ module Openai
           ],
         },
       )
-    end
-
-    def question(message)
-      MESSAGE_PREFIX + message
     end
 
     def model
@@ -47,6 +48,10 @@ module Openai
 
     def temperature
       @temperature ||= 0.7
+    end
+
+    def max_tokens
+      @max_tokens ||= 800
     end
   end
 end

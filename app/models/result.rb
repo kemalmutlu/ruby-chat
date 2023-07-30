@@ -19,9 +19,13 @@ class Result < ApplicationRecord
   validates :answer, :question, presence: true
   validates :count, numericality: { greater_than: 0 }
 
+  algoliasearch disable_indexing: proc { Rails.env.test? }, index_name: ENV['ALGOLIA_INDEX_NAME'], auto_index: true, auto_remove: true do
+    attributes :id, :answer, :question, :count
+  end
 
-
-  algoliasearch disable_indexing: false, index_name: ENV['ALGOLIA_INDEX_NAME'], auto_index: true, auto_remove: true do
-    attributes :id, :answer, :question
+  class << self
+    def increment_all
+      update_all('count = count + 1')
+    end
   end
 end
