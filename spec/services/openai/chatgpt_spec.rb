@@ -50,6 +50,15 @@ RSpec.describe(Openai::Chatgpt, type: :service) do
 
     expect do
       subject.chat(message)
-    end.to(raise_error(RuntimeError, 'Message is empty'))
+    end.to(raise_error(EmptyMessageError, 'Message cannot be empty.'))
+  end
+
+  it 'Message has to be more then 10 characters.' do
+    message = 'example'
+
+
+    expect do
+      subject.chat(message)
+    end.to(raise_error(SmallLimitError, 'Message has to be more then 10 characters.'))
   end
 end

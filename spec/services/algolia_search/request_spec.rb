@@ -45,6 +45,14 @@ RSpec.describe(AlgoliaSearch::Request, type: :service) do
 
     expect do
       described_class.new(message).fetch_data
-    end.to(raise_error(RuntimeError, 'Message is empty'))
+    end.to(raise_error(EmptyMessageError, 'Message cannot be empty.'))
+  end
+
+  it 'Message has to be more then 10 characters.' do
+    message = 'example'
+
+    expect do
+      described_class.new(message).fetch_data
+    end.to(raise_error(SmallLimitError, 'Message has to be more then 10 characters.'))
   end
 end
