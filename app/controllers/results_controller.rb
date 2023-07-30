@@ -9,14 +9,11 @@ class ResultsController < ApplicationController
   end
 
   def create
-    @result = Result.new(result_params)
-    @result.answer = Faker::Quote.famous_last_words #Later will use main service
+    @result = Ask.new(result_params[:question]).fetch_result
 
     respond_to do |format|
-      if @result.save!
-        format.turbo_stream do
-          render(turbo_stream: turbo_stream.append('results', partial: 'results/result', locals: { result: @result }))
-        end
+      format.turbo_stream do
+        render(turbo_stream: turbo_stream.append('results', partial: 'results/result', locals: { result: @result }))
       end
     end
   end
