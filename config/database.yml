@@ -81,6 +81,8 @@ test:
 #
 production:
   <<: *default
-  database: ruby_chat_production
-  username: ruby_chat
+  database: ruby-chat-production
+  username: <%= ENV["RUBY_CHAT_DATABASE_USERNAME"] %>
   password: <%= ENV["RUBY_CHAT_DATABASE_PASSWORD"] %>
+  host: <%= ENV["RUBY_CHAT_DATABASE_HOST"] %>
+  port: <%= ENV["RUBY_CHAT_DATABASE_PORT"] %>

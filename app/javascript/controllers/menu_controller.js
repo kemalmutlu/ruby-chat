@@ -4,7 +4,7 @@ export default class extends Controller {
     static targets = ["openMenu", "closeMenu", "leftMenu"];
 
     toggleMenu(){
-        let left_menu = this.leftMenuTarget
+       let left_menu = this.leftMenuTarget
 
         if (left_menu.dataset.hidden === "true") {
             left_menu.style.display = "none";

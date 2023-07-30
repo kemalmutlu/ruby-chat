@@ -12,13 +12,18 @@
 
 */
 
-.right-home-screen{
+.right-home-screen {
     background-color: #343541;
 }
-.left-home-screen{
+
+.left-home-screen {
     background-color: #202123;
 }
 .my_scroll_div{
     overflow-y: auto;
-
+}
+@media screen and (max-width: 640px) {
+    #openMenu {
+        display: none;
+    }
 }
