@@ -18,10 +18,11 @@ class Result < ApplicationRecord
 
   validates :answer, :question, presence: true
   validates :count, numericality: { greater_than: 0 }
-
   algoliasearch disable_indexing: proc { Rails.env.test? }, index_name: ENV['ALGOLIA_INDEX_NAME'], auto_index: true, auto_remove: true do
     attributes :id, :answer, :question, :count
   end
+
+  scope :popular_results, -> { order(count: :desc).limit(10) }
 
   class << self
     def increment_all
