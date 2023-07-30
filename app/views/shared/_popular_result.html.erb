@@ -1,5 +1,5 @@
 <% @popular_results.each do |result| %>
   <div class="px-2 py-3 hover:bg-customColor hover:rounded-lg">
-    <p><%= result.question.truncate(50, separator: '...') %></p>
+    <p class="append-question" style="cursor: pointer" data-url="<%= append_result_result_path(result.id) %>"><%= result.question.truncate(50, separator: '...') %></p>
   </div>
 <% end %>
