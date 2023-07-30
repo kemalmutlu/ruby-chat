@@ -1,10 +1,10 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-    static targets = ["openMenu", "closeMenu"];
+    static targets = ["openMenu", "closeMenu", "leftMenu"];
 
     toggleMenu(){
-       let left_menu = document.getElementById('left_menu')
+       let left_menu = this.leftMenuTarget
 
         if (left_menu.dataset.hidden === "true") {
             left_menu.style.display = "none";
